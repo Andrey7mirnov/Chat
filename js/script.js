@@ -5,7 +5,9 @@ import Cookies from "js-cookie";
 
 function User(name) {
   this.name = name;
-}
+};
+
+const URL_USER = "https://mighty-cove-31255.herokuapp.com/api/user";
 
 UI.FORM_NAME.addEventListener('submit', setName);
 
@@ -13,9 +15,8 @@ function setName() {
   const name = UI.INPUT_NAME.value;
   const user = new User(name);
   STORAGE.SET_USER(user);
-  const URL = "https://mighty-cove-31255.herokuapp.com/api/user";
   const token = Cookies.get('token');
-  fetch(URL, {
+  fetch(URL_USER, {
     method: "PATCH",
     headers: {
       'Authorization': `Bearer ${token}`,
@@ -43,11 +44,10 @@ function sendMassege() {
 UI.FORM_MAIL.addEventListener('submit', sendEmail);
 
 function sendEmail() {
-  const URL = "https://mighty-cove-31255.herokuapp.com/api/user";
   const email = {
     email: UI.INPUT_MAIL.value
   };
-  fetch(URL, {
+  fetch(URL_USER, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json;charset=utf-8'
