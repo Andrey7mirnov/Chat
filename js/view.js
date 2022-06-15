@@ -1,4 +1,4 @@
-export const UI = {
+//export const UI = {
   FORM_MASSEGE: document.getElementById('formMassege'),
   FORM_NAME: document.getElementById('formName'),
   FORM_MAIL: document.getElementById('formMail'),
